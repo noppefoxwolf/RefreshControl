@@ -3,6 +3,7 @@ import UIKit
 /// Archtecture like UIRefreshControlModernContentView
 /// See also https://headers.cynder.me/index.php?sdk=ios/16.0&fw=PrivateFrameworks/UIKitCore.framework&file=Headers%2F_UIRefreshControlModernContentView.h
 final class RefreshControlContentView: UIView {
+    let textLabel = UILabel()
     let arrowImageView = UIImageView()
     let activityIndicator = UIActivityIndicatorView(style: .medium)
     
@@ -23,6 +24,17 @@ final class RefreshControlContentView: UIView {
             activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
+        textLabel.textAlignment = .center
+        textLabel.font = .preferredFont(forTextStyle: .caption1)
+        textLabel.textColor = .secondaryLabel
+        addSubview(textLabel)
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            textLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            textLabel.leftAnchor.constraint(equalTo: leftAnchor),
+            textLabel.rightAnchor.constraint(equalTo: rightAnchor),
+        ])
+        
         arrowImageView.image = UIImage(
             systemName: "arrow.down",
             withConfiguration: UIImage.SymbolConfiguration(
@@ -38,6 +50,7 @@ final class RefreshControlContentView: UIView {
     }
     
     func spin() {
+        textLabel.alpha = 1
         activityIndicator.alpha = 1
         activityIndicator.startAnimating()
         arrowImageView.isHidden = true
@@ -48,6 +61,7 @@ final class RefreshControlContentView: UIView {
             withDuration: CATransaction.animationDuration(),
             animations: { [weak self] in
                 self?.activityIndicator.alpha = 0
+                self?.textLabel.alpha = 0
             }, completion: { [weak self] _ in
                 self?.activityIndicator.stopAnimating()
                 self?.arrowImageView.isHidden = false
