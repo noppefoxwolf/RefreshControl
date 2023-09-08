@@ -16,6 +16,12 @@ public final class RefreshControl: _RefreshControl {
     let contentView = RefreshControlContentView()
     var revealedFraction: CGFloat { visibleHeight / snappingHeight }
     
+    // ommitted feature
+    public override var attributedTitle: NSAttributedString? {
+        get { nil }
+        set {  }
+    }
+    
     public override init() {
         super.init()
         loadView()
