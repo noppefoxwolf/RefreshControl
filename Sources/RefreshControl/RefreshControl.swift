@@ -1,7 +1,6 @@
 import os
 import Combine
 import UIKit
-import ObjectiveC.runtime
 
 fileprivate let logger = Logger(
     subsystem: "dev.noppe.logger",
