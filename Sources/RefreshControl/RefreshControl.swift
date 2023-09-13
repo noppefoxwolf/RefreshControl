@@ -34,7 +34,7 @@ public final class RefreshControl: _RefreshControl {
     
     private func loadView() {
         /// hacking: enabled stretch style.
-        backgroundColor = .systemBackground
+        backgroundColor = .clear
         
         addSubview(contentView)
         contentView.translatesAutoresizingMaskIntoConstraints = false
