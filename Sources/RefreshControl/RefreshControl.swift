@@ -4,7 +4,7 @@ import UIKit
 
 fileprivate let logger = Logger(
     subsystem: "dev.noppe.logger",
-    category: "RefreshControl"
+    category: #file
 )
 
 public final class RefreshControl: _RefreshControl {

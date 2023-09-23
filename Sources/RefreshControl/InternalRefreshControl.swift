@@ -3,7 +3,7 @@ import UIKit
 
 fileprivate let logger = Logger(
     subsystem: "dev.noppe.logger",
-    category: "InternalRefreshControl"
+    category: #file
 )
 
 /// The internal property accessible class.
