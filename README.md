@@ -8,6 +8,13 @@ The `noppefoxwolf/RefreshControl` is using some black magic.
 I recommend reviewing the implementation code.
 You can use this library with own risk.
 
+# Feature
+
+- [x] Custom content view
+- [x] Offscreen begin refresh
+- [x] UIRefreshControl extensions
+- [x] UIScrollView extensions
+
 # Usage
 
 The `noppefoxwolf/RefreshControl` is subclass of UIRefreshControl.

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370688102AE5559F00C0ECB7 /* RefreshControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3706880F2AE5559F00C0ECB7 /* RefreshControlViewController.swift */; };
 		374CA9502AAADBB300A4D230 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374CA94F2AAADBB300A4D230 /* AppDelegate.swift */; };
 		374CA9522AAADBB300A4D230 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374CA9512AAADBB300A4D230 /* SceneDelegate.swift */; };
 		374CA9542AAADBB300A4D230 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374CA9532AAADBB300A4D230 /* ViewController.swift */; };
@@ -14,10 +15,10 @@
 		374CA9592AAADBB500A4D230 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 374CA9582AAADBB500A4D230 /* Assets.xcassets */; };
 		374CA95C2AAADBB500A4D230 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 374CA95A2AAADBB500A4D230 /* LaunchScreen.storyboard */; };
 		374CA9652AAADBCB00A4D230 /* RefreshControl in Frameworks */ = {isa = PBXBuildFile; productRef = 374CA9642AAADBCB00A4D230 /* RefreshControl */; };
-		374CA9672AAAE6A900A4D230 /* OriginalRefreshControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374CA9662AAAE6A900A4D230 /* OriginalRefreshControlViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3706880F2AE5559F00C0ECB7 /* RefreshControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControlViewController.swift; sourceTree = "<group>"; };
 		374CA94C2AAADBB300A4D230 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		374CA94F2AAADBB300A4D230 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		374CA9512AAADBB300A4D230 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,7 +27,6 @@
 		374CA9582AAADBB500A4D230 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		374CA95B2AAADBB500A4D230 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		374CA95D2AAADBB500A4D230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		374CA9662AAAE6A900A4D230 /* OriginalRefreshControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalRefreshControlViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 				374CA94F2AAADBB300A4D230 /* AppDelegate.swift */,
 				374CA9512AAADBB300A4D230 /* SceneDelegate.swift */,
 				374CA9532AAADBB300A4D230 /* ViewController.swift */,
-				374CA9662AAAE6A900A4D230 /* OriginalRefreshControlViewController.swift */,
+				3706880F2AE5559F00C0ECB7 /* RefreshControlViewController.swift */,
 				374CA9552AAADBB300A4D230 /* Main.storyboard */,
 				374CA9582AAADBB500A4D230 /* Assets.xcassets */,
 				374CA95A2AAADBB500A4D230 /* LaunchScreen.storyboard */,
@@ -150,8 +150,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				374CA9542AAADBB300A4D230 /* ViewController.swift in Sources */,
-				374CA9672AAAE6A900A4D230 /* OriginalRefreshControlViewController.swift in Sources */,
 				374CA9502AAADBB300A4D230 /* AppDelegate.swift in Sources */,
+				370688102AE5559F00C0ECB7 /* RefreshControlViewController.swift in Sources */,
 				374CA9522AAADBB300A4D230 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
