@@ -1,1 +1,1 @@
-public typealias RefreshControl = OvertimeRefreshControl
+public typealias RefreshControl = TimeoutRefreshControl

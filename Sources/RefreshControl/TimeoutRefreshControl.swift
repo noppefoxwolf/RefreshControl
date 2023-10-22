@@ -1,13 +1,10 @@
 import UIKit
 import Combine
 
-open class OvertimeRefreshControl: ContentHostingRefreshControl {
-    public var timeoverInterval: DispatchQueue.SchedulerTimeType.Stride? = nil
-    public var timeoverAttributedTitle: NSAttributedString? = nil
-    
-    private var defaultAttributedTitle: NSAttributedString? = nil
-    
-    private var cancellable: AnyCancellable? = nil
+open class TimeoutRefreshControl: OvertimeRefreshControl {
+    public var timeoutInterval: DispatchQueue.SchedulerTimeType.Stride? = nil
+    public var onTimeout: (() -> Void)? = nil
+    var cancellable: AnyCancellable? = nil
     
     public override init() {
         super.init()
@@ -26,10 +23,9 @@ open class OvertimeRefreshControl: ContentHostingRefreshControl {
         invalidateTimer()
     }
     
-    private func startTimer() {
+    func startTimer() {
         guard cancellable == nil else { return }
-        guard let interval = timeoverInterval else { return }
-        defaultAttributedTitle = attributedTitle
+        guard let interval = timeoutInterval else { return }
         cancellable = Timer
             .publish(every: 1, on: .main, in: .default, options: nil)
             .autoconnect()
@@ -37,12 +33,12 @@ open class OvertimeRefreshControl: ContentHostingRefreshControl {
             .scan(0, +)
             .first(where: { $0 > interval })
             .sink { [weak self] _ in
-                self?.attributedTitle = self?.timeoverAttributedTitle
+                self?.onTimeout?()
+                self?.endRefreshing()
             }
     }
     
-    private func invalidateTimer() {
+    func invalidateTimer() {
         cancellable = nil
-        attributedTitle = defaultAttributedTitle
     }
 }

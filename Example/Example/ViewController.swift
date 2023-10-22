@@ -44,6 +44,8 @@ class ViewController: UITableViewController {
                 let refreshControl = RefreshControl()
                 refreshControl.timeoverInterval = .seconds(3)
                 refreshControl.timeoverAttributedTitle = NSAttributedString("Delay. Please wait.")
+                refreshControl.timeoutInterval = .seconds(10)
+                refreshControl.onTimeout = { print("Timeout") }
                 return refreshControl
             }
             navigationController?.pushViewController(vc, animated: true)

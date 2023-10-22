@@ -10,10 +10,14 @@ You can use this library with own risk.
 
 # Feature
 
+## UIRefreshControl compatible
 - [x] Custom content view
 - [x] Offscreen begin refresh
-- [x] Overtime message
 - [x] UIRefreshControl extensions
+
+## Subclass extends
+- [x] Overtime message
+- [x] Timeout handler
 
 # Usage
 
