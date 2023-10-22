@@ -8,8 +8,8 @@ class ViewController: UITableViewController {
     }
 
     enum Item: String, CaseIterable {
-        case refreshControl
-        case originalRefreshControl
+        case refreshControl = "RefreshControl"
+        case originalRefreshControl = "OriginalRefreshControl"
     }
     
     lazy var dataSource = UITableViewDiffableDataSource<Section, Item>(
