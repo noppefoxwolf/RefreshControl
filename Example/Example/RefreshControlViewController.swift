@@ -2,7 +2,7 @@ import UIKit
 import RefreshControl
 import SwiftUI
 
-final class RefreshViewController<T: UIRefreshControl>: UITableViewController {
+final class RefreshViewController: UITableViewController {
     enum Section: Int {
         case items
     }
@@ -29,10 +29,20 @@ final class RefreshViewController<T: UIRefreshControl>: UITableViewController {
     
     var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
     
+    let refreshControlFactory: () -> UIRefreshControl
+    init(_ refreshControlFactory: @escaping () -> UIRefreshControl) {
+        self.refreshControlFactory = refreshControlFactory
+        super.init(style: .plain)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshControl = T()
+        refreshControl = refreshControlFactory()
         refreshControl!.addAction(UIAction { _ in
             print("Refresh!")
         }, for: .primaryActionTriggered)
@@ -51,29 +61,29 @@ final class RefreshViewController<T: UIRefreshControl>: UITableViewController {
                 UIAction(
                     title: "StartRefreshing",
                     image: UIImage(systemName: "play.fill"),
-                    handler: { _ in
-                        self.refreshControl?.startRefreshing()
+                    handler: { [weak self] _ in
+                        self?.refreshControl?.startRefreshing()
                     }
                 ),
                 UIAction(
                     title: "BeginRefreshing",
                     image: UIImage(systemName: "play.fill"),
-                    handler: { _ in
-                        self.refreshControl?.beginRefreshing()
+                    handler: { [weak self] _ in
+                        self?.refreshControl?.beginRefreshing()
                     }
                 ),
                 UIAction(
                     title: "EndRefreshing",
                     image: UIImage(systemName: "pause.fill"),
-                    handler: { _ in
-                        self.refreshControl?.endRefreshing()
+                    handler: { [weak self] _ in
+                        self?.refreshControl?.endRefreshing()
                     }
                 ),
                 UIAction(
                     title: "FinishRefreshing",
                     image: UIImage(systemName: "pause.fill"),
-                    handler: { _ in
-                        self.refreshControl?.finishRefreshing()
+                    handler: { [weak self] _ in
+                        self?.refreshControl?.finishRefreshing()
                     }
                 ),
             ])

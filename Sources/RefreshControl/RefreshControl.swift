@@ -1,1 +1,1 @@
-public typealias RefreshControl = ContentHostingRefreshControl
+public typealias RefreshControl = OvertimeRefreshControl

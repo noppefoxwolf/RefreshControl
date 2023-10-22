@@ -40,10 +40,17 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch dataSource.itemIdentifier(for: indexPath) {
         case .refreshControl:
-            let vc = RefreshViewController<RefreshControl>()
+            let vc = RefreshViewController {
+                let refreshControl = RefreshControl()
+                refreshControl.timeoverInterval = .seconds(3)
+                refreshControl.timeoverAttributedTitle = NSAttributedString("Delay. Please wait.")
+                return refreshControl
+            }
             navigationController?.pushViewController(vc, animated: true)
         case .originalRefreshControl:
-            let vc = RefreshViewController<UIRefreshControl>()
+            let vc = RefreshViewController {
+                UIRefreshControl()
+            }
             navigationController?.pushViewController(vc, animated: true)
         default:
             break

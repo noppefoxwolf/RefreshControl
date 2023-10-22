@@ -7,7 +7,7 @@ fileprivate let logger = Logger(
     category: #file
 )
 
-public final class ContentHostingRefreshControl: AnywhereBeginRefreshControl {
+open class ContentHostingRefreshControl: AnywhereBeginRefreshControl {
     private var cancellables: Set<AnyCancellable> = []
     private var triggeredActionID: UIAction.Identifier { .init(#function) }
     let contentView = RefreshControlContentView()
@@ -24,7 +24,7 @@ public final class ContentHostingRefreshControl: AnywhereBeginRefreshControl {
         addTriggeredAction()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         loadView()
         addTriggeredAction()

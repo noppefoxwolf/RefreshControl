@@ -12,8 +12,8 @@ You can use this library with own risk.
 
 - [x] Custom content view
 - [x] Offscreen begin refresh
+- [x] Overtime message
 - [x] UIRefreshControl extensions
-- [x] UIScrollView extensions
 
 # Usage
 
