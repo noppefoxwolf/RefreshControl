@@ -2,11 +2,6 @@ import os
 import Combine
 import UIKit
 
-fileprivate let logger = Logger(
-    subsystem: "dev.noppe.logger",
-    category: #file
-)
-
 open class ContentHostingRefreshControl: AnywhereBeginRefreshControl {
     private var cancellables: Set<AnyCancellable> = []
     private var triggeredActionID: UIAction.Identifier { .init(#function) }

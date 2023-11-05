@@ -1,10 +1,4 @@
 import UIKit
-import os
-
-fileprivate let logger = Logger(
-    subsystem: "dev.noppe.logger",
-    category: #file
-)
 
 // Workaround for UIRefreshControlReceivedOffscreenBeginRefreshing
 open class AnywhereBeginRefreshControl: _RefreshControl {
@@ -30,12 +24,10 @@ open class AnywhereBeginRefreshControl: _RefreshControl {
     }
     
     func onscreenBeginRefreshing() {
-        logger.debug("\(#function)")
         super.beginRefreshing()
     }
     
     func offscreenBeginRefreshing() {
-        logger.debug("\(#function)")
         isOffscreenRefreshing = true
     }
     

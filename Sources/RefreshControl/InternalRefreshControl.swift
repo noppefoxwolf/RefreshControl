@@ -2,7 +2,7 @@ import os
 import UIKit
 
 fileprivate let logger = Logger(
-    subsystem: "dev.noppe.logger",
+    subsystem: "dev.noppe.RefreshControl.logger",
     category: #file
 )
 
