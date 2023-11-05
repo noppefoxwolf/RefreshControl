@@ -17,6 +17,7 @@
 ## Subclass extends
 - [x] Overtime message
 - [x] Timeout handler
+- [x] Silent refreshing
 
 # Usage
 

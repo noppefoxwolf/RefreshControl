@@ -60,9 +60,18 @@ final class RefreshViewController: UITableViewController {
             menu: UIMenu(children: [
                 UIAction(
                     title: "StartRefreshing",
-                    image: UIImage(systemName: "play.fill"),
+                    image: UIImage(systemName: "arrow.counterclockwise.circle"),
                     handler: { [weak self] _ in
                         self?.refreshControl?.startRefreshing()
+                        self?.tableView.reloadData()
+                    }
+                ),
+                UIAction(
+                    title: "StartOffscreenRefreshing",
+                    image: UIImage(systemName: "arrow.counterclockwise.circle.fill"),
+                    handler: { [weak self] _ in
+                        (self?.refreshControl as? RefreshControl)?.startSilentRefreshing()
+                        self?.tableView.reloadData()
                     }
                 ),
                 UIAction(
@@ -81,7 +90,7 @@ final class RefreshViewController: UITableViewController {
                 ),
                 UIAction(
                     title: "FinishRefreshing",
-                    image: UIImage(systemName: "pause.fill"),
+                    image: UIImage(systemName: "stop.fill"),
                     handler: { [weak self] _ in
                         self?.refreshControl?.finishRefreshing()
                     }
