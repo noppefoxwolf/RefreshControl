@@ -67,14 +67,6 @@ final class RefreshViewController: UITableViewController {
                     }
                 ),
                 UIAction(
-                    title: "StartOffscreenRefreshing",
-                    image: UIImage(systemName: "arrow.counterclockwise.circle.fill"),
-                    handler: { [weak self] _ in
-                        (self?.refreshControl as? RefreshControl)?.startSilentRefreshing()
-                        self?.tableView.reloadData()
-                    }
-                ),
-                UIAction(
                     title: "BeginRefreshing",
                     image: UIImage(systemName: "play.fill"),
                     handler: { [weak self] _ in
