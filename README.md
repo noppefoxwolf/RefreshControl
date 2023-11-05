@@ -2,11 +2,10 @@
 
 ![](https://github.com/noppefoxwolf/RefreshControl/blob/main/.github/example.gif)
 
-# Notice
-
-The `noppefoxwolf/RefreshControl` is using some black magic.
-I recommend reviewing the implementation code.
-You can use this library with own risk.
+> **Warning**
+> The `noppefoxwolf/RefreshControl` is using some black magic.
+> I recommend reviewing the implementation code.
+> You can use this library with own risk.
 
 # Feature
 
@@ -32,6 +31,14 @@ refreshControl!.addAction(UIAction { _ in
   ...
 }, for: .primaryActionTriggered)
 ```
+
+## Apps Using
+
+<p float="left">
+    <a href="https://apps.apple.com/app/id1668645019"><img src="https://github.com/noppefoxwolf/MediaViewer/blob/main/.github/dawn.png" height="65"></a>
+</p>
+
+If you use a MediaViewer, add your app via Pull Request.
 
 # LICENSE
 
