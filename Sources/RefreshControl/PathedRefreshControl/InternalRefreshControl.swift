@@ -8,7 +8,7 @@ fileprivate let logger = Logger(
 
 /// The internal property accessible class.
 /// See also https://headers.cynder.me/index.php?sdk=ios/16.0&fw=PrivateFrameworks/UIKitCore.framework&file=Headers/UIRefreshControl.h
-open class _RefreshControl: UIRefreshControl {
+open class InternalRefreshControl: UIRefreshControl {
     
     /// hacking: ignore undefined key access
     open override func setValue(_ value: Any?, forUndefinedKey key: String) {

@@ -10,13 +10,16 @@
 # Feature
 
 ## UIRefreshControl compatible
-- [x] Custom content view
-- [x] Offscreen begin refresh
-- [x] UIRefreshControl extensions
+- [x] Arrow style content view (ContentHostingRefreshControl)
+- [x] Offscreen begin refresh (WaitHostingRefreshControl)
+- [x] UIRefreshControl extensions (UIRefreshControl+)
 
 ## Subclass extends
-- [x] Overtime message
-- [x] Timeout handler
+- [x] Customize content view (ContentHostingRefreshControl)
+- [x] Overtime message (OvertimeRefreshControl)
+- [x] Timeout handler (TimeoutRefreshControl)
+- [x] Add delegate (DelegatableRefreshControl)
+- [x] Private method access (InternalRefreshControl)
 
 # Usage
 

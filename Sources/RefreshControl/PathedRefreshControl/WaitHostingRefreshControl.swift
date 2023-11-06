@@ -1,7 +1,7 @@
 import UIKit
 
 // Workaround for UIRefreshControlReceivedOffscreenBeginRefreshing
-open class AnywhereBeginRefreshControl: _RefreshControl {
+open class WaitHostingRefreshControl: InternalRefreshControl {
     var isOffscreenRefreshing: Bool = false
     
     open override var isRefreshing: Bool {

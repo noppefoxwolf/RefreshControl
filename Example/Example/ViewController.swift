@@ -1,6 +1,11 @@
-
 import UIKit
 import RefreshControl
+import os
+
+fileprivate let logger = Logger(
+    subsystem: Bundle.main.bundleIdentifier! + ".logger",
+    category: #file
+)
 
 class ViewController: UITableViewController {
     enum Section: Int {
@@ -46,6 +51,7 @@ class ViewController: UITableViewController {
                 refreshControl.timeoverAttributedTitle = NSAttributedString("Delay. Please wait.")
                 refreshControl.timeoutInterval = .seconds(10)
                 refreshControl.onTimeout = { print("Timeout") }
+                refreshControl.addDelegate(self)
                 return refreshControl
             }
             navigationController?.pushViewController(vc, animated: true)
@@ -57,5 +63,19 @@ class ViewController: UITableViewController {
         default:
             break
         }
+    }
+}
+
+extension ViewController: RefreshControlDelegate {
+    func didTriggered(_ refreshControl: UIRefreshControl) {
+        logger.debug("\(#function)")
+    }
+    
+    func refreshControl(_ refreshControl: UIRefreshControl, updated revealedFraction: Double) {
+        logger.debug("\(#function) \(revealedFraction)")
+    }
+    
+    func didFinishRefreshing(_ refreshControl: UIRefreshControl) {
+        logger.debug("\(#function)")
     }
 }
