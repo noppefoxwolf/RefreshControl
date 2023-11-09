@@ -41,7 +41,7 @@ refreshControl!.addAction(UIAction { _ in
     <a href="https://apps.apple.com/app/id1668645019"><img src="https://github.com/noppefoxwolf/MediaViewer/blob/main/.github/dawn.png" height="65"></a>
 </p>
 
-If you use a MediaViewer, add your app via Pull Request.
+If you use a RefreshControl, add your app via Pull Request.
 
 # LICENSE
 

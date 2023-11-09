@@ -1,6 +1,7 @@
 import UIKit
 import Combine
 
+@MainActor
 public protocol RefreshControlDelegate: AnyObject {
     func refreshControl(_ refreshControl: UIRefreshControl, updated revealedFraction: Double)
     func didTriggered(_ refreshControl: UIRefreshControl)
