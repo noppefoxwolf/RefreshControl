@@ -13,7 +13,9 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "RefreshControl"),
+            name: "RefreshControl",
+            resources: [.copy("PrivacyInfo.xcprivacy")]
+        ),
         .testTarget(
             name: "RefreshControlTests",
             dependencies: ["RefreshControl"]),
