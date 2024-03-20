@@ -38,6 +38,16 @@ refreshControl!.addAction(UIAction { _ in
 }, for: .primaryActionTriggered)
 ```
 
+If you want to use disabled refreshControl.
+You can use `RefreshControlController`.
+
+```swift
+tableView.refreshControlController = RefreshControlController(
+    refreshControl: refreshControl
+)
+tableView.refreshControlController.isEnabled = false // Show disabled view
+``` 
+
 ## Apps Using
 
 <p float="left">

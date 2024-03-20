@@ -31,8 +31,6 @@ final class RefreshViewController: UITableViewController {
     
     let refreshControlFactory: () -> UIRefreshControl
     
-    var refreshControlController: (any RefreshControlControllable)? = nil
-    
     init(_ refreshControlFactory: @escaping () -> UIRefreshControl) {
         self.refreshControlFactory = refreshControlFactory
         super.init(style: .plain)
@@ -60,7 +58,6 @@ final class RefreshViewController: UITableViewController {
             refreshControl: refreshControl,
             disabledRefreshIndicatorView: disabledRefreshIndicatorView
         )
-        refreshControlController?.scrollView = tableView
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         _ = dataSource

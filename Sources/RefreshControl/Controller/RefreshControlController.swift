@@ -1,4 +1,5 @@
 import UIKit
+import SwiftUI
 
 @MainActor
 public protocol RefreshControlControllable: AnyObject {
@@ -17,7 +18,7 @@ public final class RefreshControlController<RefreshControl: UIRefreshControl>: S
     
     public init(
         refreshControl: RefreshControl,
-        disabledRefreshIndicatorView: DisabledRefreshIndicatorView
+        disabledRefreshIndicatorView: DisabledRefreshIndicatorView = .init(rootView: Text("Hello, World!"))
     ) {
         self.refreshControl = refreshControl
         self.disabledRefreshIndicatorView = disabledRefreshIndicatorView
