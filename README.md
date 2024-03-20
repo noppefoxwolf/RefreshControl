@@ -21,6 +21,9 @@
 - [x] Add delegate (DelegatableRefreshControl)
 - [x] Private method access (InternalRefreshControl)
 
+## Additional extends
+- [x] disabled control (RefreshControlController)
+
 # Usage
 
 The `noppefoxwolf/RefreshControl` is subclass of UIRefreshControl.

@@ -30,6 +30,9 @@ final class RefreshViewController: UITableViewController {
     var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
     
     let refreshControlFactory: () -> UIRefreshControl
+    
+    var refreshControlController: (any RefreshControlControllable)? = nil
+    
     init(_ refreshControlFactory: @escaping () -> UIRefreshControl) {
         self.refreshControlFactory = refreshControlFactory
         super.init(style: .plain)
@@ -42,10 +45,22 @@ final class RefreshViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshControl = refreshControlFactory()
-        refreshControl!.addAction(UIAction { _ in
+        let refreshControl = refreshControlFactory()
+        refreshControl.addAction(UIAction { _ in
             print("Refresh!")
         }, for: .primaryActionTriggered)
+        
+        let rootView = VStack(content: {
+            ProgressView().progressViewStyle(.circular)
+            Text("Streaming...").foregroundStyle(.secondary)
+        }).padding()
+        let disabledRefreshIndicatorView = DisabledRefreshIndicatorView(rootView: rootView)
+        
+        refreshControlController = RefreshControlController(
+            refreshControl: refreshControl,
+            disabledRefreshIndicatorView: disabledRefreshIndicatorView
+        )
+        refreshControlController?.scrollView = tableView
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         _ = dataSource
@@ -62,7 +77,7 @@ final class RefreshViewController: UITableViewController {
                     title: "StartRefreshing",
                     image: UIImage(systemName: "arrow.counterclockwise.circle"),
                     handler: { [weak self] _ in
-                        self?.refreshControl?.startRefreshing()
+                        self?.refreshControlController?.refreshControl.startRefreshing()
                         self?.tableView.reloadData()
                     }
                 ),
@@ -70,21 +85,35 @@ final class RefreshViewController: UITableViewController {
                     title: "BeginRefreshing",
                     image: UIImage(systemName: "play.fill"),
                     handler: { [weak self] _ in
-                        self?.refreshControl?.beginRefreshing()
+                        self?.refreshControlController?.refreshControl.beginRefreshing()
                     }
                 ),
                 UIAction(
                     title: "EndRefreshing",
                     image: UIImage(systemName: "pause.fill"),
                     handler: { [weak self] _ in
-                        self?.refreshControl?.endRefreshing()
+                        self?.refreshControlController?.refreshControl.endRefreshing()
                     }
                 ),
                 UIAction(
                     title: "FinishRefreshing",
                     image: UIImage(systemName: "stop.fill"),
                     handler: { [weak self] _ in
-                        self?.refreshControl?.finishRefreshing()
+                        self?.refreshControlController?.refreshControl.finishRefreshing()
+                    }
+                ),
+                UIAction(
+                    title: "Enabled",
+                    image: UIImage(systemName: "circle.circle"),
+                    handler: { [weak self] _ in
+                        self?.refreshControlController?.isEnabled = true
+                    }
+                ),
+                UIAction(
+                    title: "Disabled",
+                    image: UIImage(systemName: "xmark.circle"),
+                    handler: { [weak self] _ in
+                        self?.refreshControlController?.isEnabled = false
                     }
                 ),
             ])
