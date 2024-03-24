@@ -23,6 +23,7 @@ open class ContentHostingRefreshControl: DelegatableRefreshControl {
     }
     
     public func setContentView(_ contentView: ContentView) {
+        clipsToBounds = true
         contentView.removeFromSuperview()
         self.contentView = contentView
         addDelegate(contentView)
