@@ -23,11 +23,13 @@ public final class DisabledRefreshIndicatorView: UIView {
         super.didMoveToSuperview()
         if let scrollView = superview as? UIScrollView {
             translatesAutoresizingMaskIntoConstraints = false
+            let topConstraint = topAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.topAnchor)
+            topConstraint.priority = .defaultLow
             NSLayoutConstraint.activate([
                 bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
                 leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor),
                 scrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: trailingAnchor),
-                topAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.topAnchor),
+                topConstraint,
             ])
         }
     }
