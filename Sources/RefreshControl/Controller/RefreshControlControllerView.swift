@@ -44,3 +44,11 @@ extension UITableViewController {
         set { tableView.refreshControlController = newValue }
     }
 }
+
+extension UICollectionViewController {
+    @MainActor
+    public var refreshControlController: (any RefreshControlControllable)? {
+        get { collectionView.refreshControlController }
+        set { collectionView.refreshControlController = newValue }
+    }
+}
