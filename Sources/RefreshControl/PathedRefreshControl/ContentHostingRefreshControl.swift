@@ -24,7 +24,8 @@ open class ContentHostingRefreshControl: DelegatableRefreshControl {
     
     public func setContentView(_ contentView: ContentView) {
         clipsToBounds = true
-        contentView.removeFromSuperview()
+        removeDelegate(self.contentView)
+        self.contentView.removeFromSuperview()
         self.contentView = contentView
         addDelegate(contentView)
         addSubview(contentView)
@@ -32,8 +33,8 @@ open class ContentHostingRefreshControl: DelegatableRefreshControl {
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: topAnchor),
             bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            contentView.leftAnchor.constraint(equalTo: leftAnchor),
-            rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            contentView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ])
     }
     
