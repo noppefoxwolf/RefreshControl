@@ -19,6 +19,10 @@ open class DelegatableRefreshControl: WaitHostingRefreshControl {
     public func addDelegate(_ delegate: RefreshControlDelegate) {
         delegates.append(Weak(value: delegate))
     }
+
+    func removeDelegate(_ delegate: RefreshControlDelegate) {
+        delegates.removeAll { $0.value == nil || $0.value === delegate }
+    }
     
     private var contentOffsetObserver: AnyCancellable? = nil
     private var triggeredActionID: UIAction.Identifier { .init(#function) }

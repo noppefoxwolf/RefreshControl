@@ -27,8 +27,8 @@ public final class DisabledRefreshIndicatorView: UIView {
             topConstraint.priority = .defaultLow
             NSLayoutConstraint.activate([
                 bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
-                leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor),
-                scrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: trailingAnchor),
+                leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor),
+                scrollView.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: trailingAnchor),
                 topConstraint,
             ])
         }
